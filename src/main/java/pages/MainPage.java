@@ -5,33 +5,26 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class MainPage {
+public class MainPage extends BasePage {
 
-    private static final String pageUrl = "https://market.yandex.ru";
+    String pageUrl = "https://market.yandex.ru";
 
-    private static final By TOP_MENU_TAB = By.xpath("//*[text()='Электроника']");
-
-    private final WebDriver driver;
-
-    public MainPage(WebDriver driver) {
-        this.driver = driver;
-
+    MainPage(WebDriver driver) {
+        super(driver);
         }
 
-    public void clickOnTab(){
-        driver.findElement(TOP_MENU_TAB).click();
+    public void openMainPage(){
+        super.openPage(pageUrl);
     }
 
-    public void openPage(){
-        driver.get(pageUrl);
+    public void clickOnCategoryTab(String name){
+        By tabLocator = generateTopMenuLocatorByName(name);
+        driver.findElement(tabLocator).click();
     }
 
-    public static void main(String[] args) {
-        WebDriver driver = new FirefoxDriver();
-        MainPage m = new MainPage(driver);
-        m.openPage();
-        m.clickOnTab();
+    public By generateTopMenuLocatorByName(String name){
+        return By.xpath(String.format("//*[contains(@class, 'link topmenu__link') and text() = '%s']",name));
     }
-    }
+}
 
 
