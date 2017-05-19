@@ -9,6 +9,7 @@ public class ProductListPage extends BasePage {
 
     public static final By PRODUCT_TITLE = By.xpath("//*[@class=\"snippet-card__header-text\"]");
     public static final By PRICE_FROM_FIELD = By.id("glf-pricefrom-var");
+    public static final By PRICE_TO_FIELD = By.id("glf-priceto-var");
 
     ProductListPage(WebDriver driver) {
         super(driver);
@@ -32,6 +33,10 @@ public class ProductListPage extends BasePage {
 
     public void setPriceFromFiltersValue(String priceFrom){
         setValueToField(PRICE_FROM_FIELD,priceFrom);
+    }
+
+    public void setPriceToFiltersValue(String priceTo){
+        setValueToField(PRICE_TO_FIELD,priceTo);
     }
 
     public List<WebElement> getAllProductsTitleElements(){

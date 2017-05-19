@@ -18,7 +18,9 @@ public class BasePage {
     }
 
     public void click(By locator){
-        driver.findElement(locator).click();
+        WebElement element = driver.findElement(locator);
+        moveToElement(element);
+        element.click();
     }
 
     public void openPage(String pageUrl){

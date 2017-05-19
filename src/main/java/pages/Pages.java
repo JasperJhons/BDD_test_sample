@@ -2,9 +2,10 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
+
 public class Pages {
 
-    private final WebDriver driver;
+    public final WebDriver driver;
 
     private MainPage mainPage;
     private CatalogCategoryPage catalogCategoryPage;
@@ -41,5 +42,9 @@ public class Pages {
             productPage = new ProductPage(driver);
         }
         return productPage;
+    }
+
+    public void setProductPage(ProductPage productPage){
+        this.productPage = productPage;
     }
 }
