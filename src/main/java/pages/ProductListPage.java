@@ -41,7 +41,7 @@ public class ProductListPage extends BasePage {
     }
 
     public List<WebElement> getAllProductsTitleElements() {
-        sleep(4);
+        sleep(7);
         return driver.findElements(PRODUCT_TITLE);
     }
 

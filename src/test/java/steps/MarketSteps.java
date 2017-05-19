@@ -15,7 +15,7 @@ public class MarketSteps {
     @BeforeStory
     public void prepareBeforeScenario() {
         WebDriver driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         this.pages = new Pages(driver);
     }
 
