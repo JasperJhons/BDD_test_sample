@@ -1,9 +1,9 @@
 package steps;
 
 import org.jbehave.core.annotations.*;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.junit.Assert;
 import pages.Pages;
 
 import java.util.concurrent.TimeUnit;
@@ -13,14 +13,14 @@ public class MarketSteps {
     private Pages pages;
 
     @BeforeStory
-    public void prepareBeforeScenario(){
+    public void prepareBeforeScenario() {
         WebDriver driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         this.pages = new Pages(driver);
     }
 
     @AfterStory
-    public void cleanDataAfterScenario(){
+    public void cleanDataAfterScenario() {
         pages.driver.quit();
     }
 

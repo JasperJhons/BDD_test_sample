@@ -11,7 +11,7 @@ import steps.MarketSteps;
 public class MarketTests extends JUnitStory {
 
     @Override
-    public Configuration configuration(){
+    public Configuration configuration() {
         return new MostUsefulConfiguration()
                 // where to find the stories
                 .useStoryLoader(new LoadFromClasspath(this.getClass()))

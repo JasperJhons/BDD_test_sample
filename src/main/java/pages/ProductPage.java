@@ -20,11 +20,11 @@ public class ProductPage extends BasePage {
         this.targetProductName = targetProductName;
     }
 
-    public String getCurrentProductName(){
+    public String getCurrentProductName() {
         return getText(driver.findElement(PRODUCT_TITLE));
     }
 
-    public String getTargetProductName(){
+    public String getTargetProductName() {
         return targetProductName;
     }
 }

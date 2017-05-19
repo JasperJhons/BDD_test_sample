@@ -10,12 +10,12 @@ public class CatalogCategoryPage extends BasePage {
         super(driver);
     }
 
-    public By generateCategoryLocatorByName(String name){
+    public By generateCategoryLocatorByName(String name) {
         return By.xpath(
-                String.format("//*[contains(@class, 'link catalog-menu__list-item metrika i-bem metrika_js_inited') and text() = '%s']",name));
+                String.format("//*[contains(@class, 'link catalog-menu__list-item metrika i-bem metrika_js_inited') and text() = '%s']", name));
     }
 
-    public void clickOnSubcategoryByName(String name){
+    public void clickOnSubcategoryByName(String name) {
         By subcategoryLocator = generateCategoryLocatorByName(name);
         click(subcategoryLocator);
     }

@@ -11,19 +11,19 @@ public class MainPage extends BasePage {
 
     MainPage(WebDriver driver) {
         super(driver);
-        }
+    }
 
-    public void openMainPage(){
+    public void openMainPage() {
         super.openPage(pageUrl);
     }
 
-    public void clickOnCategoryTab(String name){
+    public void clickOnCategoryTab(String name) {
         By tabLocator = generateTopMenuLocatorByName(name);
         driver.findElement(tabLocator).click();
     }
 
-    public By generateTopMenuLocatorByName(String name){
-        return By.xpath(String.format("//*[contains(@class, 'link topmenu__link') and text() = '%s']",name));
+    public By generateTopMenuLocatorByName(String name) {
+        return By.xpath(String.format("//*[contains(@class, 'link topmenu__link') and text() = '%s']", name));
     }
 }
 

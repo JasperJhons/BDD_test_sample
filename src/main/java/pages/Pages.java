@@ -44,7 +44,7 @@ public class Pages {
         return productPage;
     }
 
-    public void setProductPage(ProductPage productPage){
+    public void setProductPage(ProductPage productPage) {
         this.productPage = productPage;
     }
 }
