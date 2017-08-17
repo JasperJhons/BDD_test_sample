@@ -1,20 +1,23 @@
 package pages;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Getter
+@Setter
+@Component
+public abstract class BasePage {
 
-public class BasePage {
-
-    WebDriver driver;
-
-    BasePage(WebDriver driver) {
-        this.driver = driver;
-    }
+    @Autowired
+    protected WebDriver driver;
 
     public void click(By locator) {
         WebElement element = driver.findElement(locator);

@@ -1,20 +1,18 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class ProductListPage extends BasePage {
 
     public static final By PRODUCT_TITLE = By.xpath("//*[@class=\"snippet-card__header-text\"]");
     public static final By PRICE_FROM_FIELD = By.id("glf-pricefrom-var");
     public static final By PRICE_TO_FIELD = By.id("glf-priceto-var");
 
-    ProductListPage(WebDriver driver) {
-        super(driver);
-    }
 
     public By generateFilterParameterLocator(String name) {
         return By.xpath(String.format("//*[contains(@class, 'checkbox__label') and text() = '%s']", name));
@@ -45,11 +43,11 @@ public class ProductListPage extends BasePage {
         return driver.findElements(PRODUCT_TITLE);
     }
 
-    public ProductPage openProductPageByIndex(int index) {
+    public void openProductPageByIndex(int index, ProductPage page) {
         List<WebElement> allProducts = getAllProductsTitleElements();
         WebElement targetProduct = allProducts.get(index);
         targetProduct.click();
-        return new ProductPage(driver, getText(targetProduct));
+        page.setTargetProductName(getText(targetProduct));
     }
 
 

@@ -11,7 +11,7 @@ When Open product in <position> position in list
 Then Check what right product is open
 
 Examples:
-|topcategory|subcategory|filter|pricefrom|priceto|position|
-|Электроника|Мобильные телефоны|Samsung|40000| |1|
-|Электроника|Портативная акустика|JBL|13000|40000|1|
-|Электроника|Наушники и Bluetooth-гарнитуры|Beats|17000|25000|1|
+|topcategory|subcategory                   |filter |pricefrom|priceto|position|
+|Электроника|Мобильные телефоны            |Samsung|40000    |       |0       |
+|Электроника|Портативная акустика          |JBL    |13000    |40000  |0       |
+|Электроника|Наушники и Bluetooth-гарнитуры|Beats  |17000    |25000  |0       |

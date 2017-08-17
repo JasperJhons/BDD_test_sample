@@ -2,19 +2,16 @@ package pages;
 
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class MainPage extends BasePage {
 
-    String pageUrl = "https://market.yandex.ru";
+    private static String PAGEURL = "https://market.yandex.ru";
 
-    MainPage(WebDriver driver) {
-        super(driver);
-    }
 
     public void openMainPage() {
-        super.openPage(pageUrl);
+        super.openPage(PAGEURL);
     }
 
     public void clickOnCategoryTab(String name) {

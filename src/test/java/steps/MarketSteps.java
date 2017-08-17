@@ -1,68 +1,64 @@
 package steps;
 
-import org.jbehave.core.annotations.*;
+import org.jbehave.core.annotations.AfterStory;
+import org.jbehave.core.annotations.Given;
+import org.jbehave.core.annotations.Then;
+import org.jbehave.core.annotations.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import pages.Pages;
 
-import java.util.concurrent.TimeUnit;
-
+@Component
 public class MarketSteps {
 
+    @Autowired
     private Pages pages;
-
-    @BeforeStory
-    public void prepareBeforeScenario() {
-        WebDriver driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        this.pages = new Pages(driver);
-    }
 
     @AfterStory
     public void cleanDataAfterScenario() {
-        pages.driver.quit();
+        pages.getDriver().quit();
     }
 
     @Given("Yandex market main page")
     public void yandexMarketMainPageOpen() {
-        pages.mainPage().openMainPage();
+        pages.getMainPage().openMainPage();
     }
 
     @When("Click on $category category tab in main menu")
     public void clickOnCategoryTabInMain(String category) {
-        pages.mainPage().clickOnCategoryTab(category);
+        pages.getMainPage().clickOnCategoryTab(category);
     }
 
     @When("Click on $category category link in left menu")
     public void clickOnCategoryLinkInLeft(String category) {
-        pages.catalogCategoryPage().clickOnSubcategoryByName(category);
+        pages.getCatalogCategoryPage().clickOnSubcategoryByName(category);
     }
 
     @When("Set from price parameter as $parameter")
-    public void setFromPriceParametre(String parametеr) {
-        pages.productListPage().setPriceFromFiltersValue(parametеr);
+    public void setFromPriceParameter(String parameter) {
+        pages.getProductListPage().setPriceFromFiltersValue(parameter);
     }
 
     @When("Set to price parameter as $parameter")
-    public void setToPriceParametre(String parametеr) {
-        pages.productListPage().setPriceToFiltersValue(parametеr);
+    public void setToPriceParameter(String parameter) {
+        pages.getProductListPage().setPriceToFiltersValue(parameter);
     }
 
     @When("Set filters parameter as $parameter")
-    public void setFiltersParametre(String parameter) {
-        pages.productListPage().setFilterparameter(parameter);
+    public void setFiltersParameter(String parameter) {
+        pages.getProductListPage().setFilterparameter(parameter);
     }
 
     @When("Open product in $position position in list")
-    public void setFiltersParametre(int position) {
-        pages.setProductPage(pages.productListPage().openProductPageByIndex(--position));
+    public void setFiltersParameter(int position) {
+        pages.getProductListPage().openProductPageByIndex(position, pages.getProductPage());
     }
 
     @Then("Check what right product is open")
     public void checkRightProductIsOpen() {
-        Assert.assertEquals(pages.productPage().getCurrentProductName(),
-                pages.productPage().getTargetProductName());
+        Assert.assertEquals(pages.getProductPage().getCurrentProductName(),
+                pages.getProductPage().getTargetProductName());
     }
 }
 

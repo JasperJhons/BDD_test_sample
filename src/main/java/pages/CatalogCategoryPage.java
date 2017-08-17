@@ -2,13 +2,10 @@ package pages;
 
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CatalogCategoryPage extends BasePage {
-
-    CatalogCategoryPage(WebDriver driver) {
-        super(driver);
-    }
 
     public By generateCategoryLocatorByName(String name) {
         return By.xpath(
